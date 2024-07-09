@@ -1,8 +1,29 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/Header";
+import { Poppins } from "next/font/google";
+import { Open_Sans } from "next/font/google";
+import Footer from "./_components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+// Non variable fonts.
+// you have to specify array of weight
+
+const poppins = Poppins({
+  weight: ["400", "900"],   
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--poppins-font",
+});
+
+// For variable fonts.
+// you have to specify weight= "variable" value only.
+
+const open_sans = Open_Sans({
+  weight: "variable",
+  style: ["italic", "normal"],
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--open-sans-font",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -12,11 +33,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <div className="md:px-20">
           <Header />
           {children}
+          
         </div>
+
+        <Footer />
+        
         </body>
     </html>
   );
