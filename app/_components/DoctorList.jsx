@@ -3,8 +3,9 @@ import Slider from 'react-slick';
 import Image from 'next/image';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Link from 'next/link';
 
-function DoctorList({ doctorList, heading = 'Doctores Mas Frecuentados',useCarousel = false }) {
+function DoctorList({ doctorList, heading = 'Doctores Mas Frecuentados', useCarousel = true }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -59,9 +60,11 @@ function DoctorList({ doctorList, heading = 'Doctores Mas Frecuentados',useCarou
           <h3 className='font-thin text-[12px] text-gray-600'>
             {doctor.attributes.Years_of_Experience}
           </h3>
-          <h3 className='p-2 px-2 text-[12px] border-[1px] border-primary text-primary rounded-full w-full text-center mt-2 cursor-pointer hover:bg-primary hover:text-white'>
+          <Link href={`/details/${doctor?.id}`} className='w-full'>
+          <h3 className='p-2 px-2 text-[12px] border-[1px] border-primary bg-primary text-white  rounded-full w-full text-center mt-2 cursor-pointer hover:bg-white hover:text-primary'>
             Reserva Consulta
           </h3>
+          </Link> 
         </div>
       </div>
     </div>

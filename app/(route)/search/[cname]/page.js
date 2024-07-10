@@ -18,10 +18,15 @@ function Search({params}) {
       setDoctorList(resp.data.data);
     })
   }
+
+  const decodedCname = decodeURIComponent(params.cname);
   return (
     <div>
-      <DoctorList heading={params.cname}
-      doctorList={doctorList}/>
+      <DoctorList 
+        heading={decodedCname}
+        doctorList={doctorList}
+        useCarousel={false}  // Pass useCarousel as false
+      />
     </div>
   )
 }
