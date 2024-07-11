@@ -1,22 +1,17 @@
 import "./globals.css";
 import Header from "./_components/Header";
-import { Poppins } from "next/font/google";
-import { Open_Sans } from "next/font/google";
 import Footer from "./_components/Footer";
+import { Poppins, Open_Sans } from "next/font/google";
 
-// Non variable fonts.
-// you have to specify array of weight
-
+// Non-variable fonts
 const poppins = Poppins({
-  weight: ["400", "900"],   
+  weight: ["400", "900"],
   display: "swap",
   subsets: ["latin"],
   variable: "--poppins-font",
 });
 
-// For variable fonts.
-// you have to specify weight= "variable" value only.
-
+// Variable fonts
 const open_sans = Open_Sans({
   weight: "variable",
   style: ["italic", "normal"],
@@ -33,16 +28,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} ${open_sans.className}`}>
         <div className="md:px-20">
           <Header />
           {children}
-          
         </div>
-
         <Footer />
-        
-        </body>
+      </body>
     </html>
   );
 }
