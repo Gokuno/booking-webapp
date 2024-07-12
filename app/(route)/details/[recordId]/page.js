@@ -3,6 +3,9 @@
 import GlobalApi from '@/app/_utils/GlobalApi';
 import React, { useEffect, useState } from 'react';
 import DoctorDetail from '../_components/DoctorDetail'; // Ensure the path is correct
+import DoctorSuggestionList from '../_components/DoctorSuggestionList';
+
+
 
 function Details({ params }) {
   const [doctor, setDoctor] = useState(null);
@@ -21,7 +24,7 @@ function Details({ params }) {
 
   return (
     <div className='p-5 md:px-10'>
-      <h2 className='font-bold text-[22px]'>Details</h2>
+      <h2 className='font-bold text-[22px]'>Detalles</h2>
 
       <div className='grid grid-cols-1 lg:grid-cols-4 '>
         {/* Doctor Detail  */}
@@ -29,8 +32,14 @@ function Details({ params }) {
           {doctor && <DoctorDetail doctor={doctor} />}
         </div>
         {/* Doctor Suggestion  */}
+        <div>
+          <DoctorSuggestionList />
+        </div>
+  
       </div>
     </div>
+        
+     
   );
 }
 
