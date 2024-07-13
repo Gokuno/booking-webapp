@@ -2,6 +2,7 @@ import "./globals.css";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import { Poppins, Open_Sans } from "next/font/google";
+import { Toaster } from "sonner";
 
 // Non-variable fonts
 const poppins = Poppins({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
         <div className="md:px-20">
           <Header />
           {children}
+          <Toaster />
         </div>
         <Footer />
       </body>

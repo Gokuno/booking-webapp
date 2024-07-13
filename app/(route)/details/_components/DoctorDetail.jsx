@@ -82,7 +82,7 @@ function DoctorDetail({ doctor }) {
               />
             ))}
           </div>
-          <BookAppointment /> 
+          <BookAppointment doctor={doctor} /> 
         </div>
       </div>
       <div className='p-4 border-[1px] rounded-lg mt-5'>
