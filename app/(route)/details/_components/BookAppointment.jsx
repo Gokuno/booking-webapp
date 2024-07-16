@@ -65,9 +65,15 @@ function BookAppointment({ doctor }) {
         GlobalApi.bookAppointment(data).then(resp => {
             console.log(resp);
             if (resp) {
+                GlobalApi.sendEmail(data).then(resp => {
+                    console.log(resp)
+                })
                 toast("Se te enviará la confirmación a tu correo.")
             }
-        })
+        }).catch(error => {
+            console.error(error);
+            toast.error("Error booking appointment. Please try again.")
+        });
     }
 
     const isPastDay = (day) => {
@@ -85,7 +91,6 @@ function BookAppointment({ doctor }) {
                     <DialogDescription>
                         <div>
                             <div className='grid grid-cols-1 md:grid-cols-2 mt-5'>
-                                {/* Calendar */}
                                 <div className='flex flex-col gap-3 items-baseline'>
                                     <h2 className='flex gap-2 items-center'>
                                         <CalendarDays className='text-primary h-5 w-5' />
@@ -99,8 +104,6 @@ function BookAppointment({ doctor }) {
                                         className="rounded-md border"
                                     />
                                 </div>
-
-                                {/* Time Slot */}
                                 <div className='mt-3 md:mt-0'>
                                     <h2 className='flex gap-2 items-center mb-3'>
                                         <Clock className='text-primary h-5 w-5' />
