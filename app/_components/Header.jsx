@@ -74,7 +74,7 @@ function Header() {
                         </PopoverTrigger>
                         <PopoverContent className="w-44">
                             <ul className='flex flex-col gap-2'>
-                                <Link href='/my-booking' className='cursor-pointer hover:bg-slate-100 p-2 rounded-md'>Mi reservacion</Link>
+                                <Link href={'/my-booking'} className='cursor-pointer hover:bg-slate-100 p-2 rounded-md'>Mi agenda</Link>
                                 <li className='cursor-pointer hover:bg-slate-100 p-2 rounded-md'>
                                     <LogoutLink> Salir </LogoutLink>
                                 </li>
