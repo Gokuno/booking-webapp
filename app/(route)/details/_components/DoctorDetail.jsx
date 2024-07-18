@@ -60,7 +60,7 @@ function DoctorDetail({ doctor }) {
         </div>
         <div className='flex flex-col gap-2 px-10 col-span-2 mt-5 items-baseline'>
           <h2 className='font-bold text-2xl'>{doctor.attributes?.Name || 'Doctor Name'}</h2>
-          <h2 className='font-bold text-[14px] bg-violet-100 p-1 rounded-full px-2 text-primary mb-2'>
+          <h2 className='font-bold text-[14px] bg-green-50 p-1 rounded-full px-2 text-primary mb-2'>
             {doctor.attributes?.categories?.data[0]?.attributes?.Name || 'Category'}
           </h2>
           <h2 className='flex gap-2 text-gray-800 text-md'>

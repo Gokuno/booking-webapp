@@ -11,7 +11,7 @@ function Header() {
     const Menu = [
         {
             id: 1,
-            name: 'Incio',
+            name: 'Inicio',
             path: '/'
         },
         {
@@ -21,74 +21,79 @@ function Header() {
         },
         {
             id: 3,
-            name: 'Contactanos',
-            path: '/'
+            name: 'Contáctanos',
+            path: '/'  // Ensure this is the correct path for your contact page
         }
-    ]
+    ];
 
     const { user } = useKindeBrowserClient();
 
     useEffect(() => {
         console.log('User:', user);
-    }, [user])
+    }, [user]);
+
+    const handleLogoClick = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const getUserImage = () => {
+        // Use default image if user.picture is not available or is blank
+        return user?.picture && !user.picture.includes('blank') ? user.picture : '/user.png';
+    };
 
     return (
-        <div className='flex items-center justify-between p-5 shadow-sm'>
+        <div className='flex p-4 items-center justify-between shadow-sm'>
             <div className='flex items-center gap-10'>
-                <Image 
-                    src='/logo.svg' 
-                    alt='logo' 
-                    width={180} 
-                    height={80} 
-                />
+                <Link href='/' onClick={handleLogoClick}>
+                    <Image 
+                        src='/logo.svg' 
+                        alt='logo' 
+                        width={200} 
+                        height={120} 
+                        className='cursor-pointer'
+                    />
+                </Link>
 
                 <ul className='md:flex gap-8 hidden'>
-                    {Menu.map((item) => (
+                {Menu.filter(item => item.name !== 'Inicio' && item.name !== 'Explora' && item.name !== 'Contáctanos').map((item) => (
                         <Link key={item.id} href={item.path}>
                             <li className='hover:text-primary cursor-pointer hover:scale-105 transition-all ease-in-out'>{item.name}</li>
                         </Link>
                     ))}
                 </ul>
             </div>
-            {user ? (
-                <>
+            <div className='flex items-center gap-4'>
+                {user ? (
                     <Popover>
                         <PopoverTrigger>
-                            {user?.picture ? (
-                                <Image 
-                                    src={user.picture} 
-                                    alt='profile-image'
-                                    width={40}
-                                    height={40}
-                                    className='rounded-full' 
-                                />
-                            ) : (
-                                <Image 
-                                    src='https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png' 
-                                    alt='profile-image'
-                                    width={40}
-                                    height={40}
-                                    className='rounded-full' 
-                                />
-                            )}
+                            <Image 
+                                src={getUserImage()} 
+                                alt='profile-image'
+                                width={40} 
+                                height={40} 
+                                className='rounded-full' 
+                            />
                         </PopoverTrigger>
                         <PopoverContent className="w-44">
                             <ul className='flex flex-col gap-2'>
-                                <Link href={'/my-booking'} className='cursor-pointer hover:bg-slate-100 p-2 rounded-md'>Mi agenda</Link>
+                                <Link href={'/my-booking'} className='cursor-pointer hover:bg-slate-100 p-2 rounded-md'>Mi Agenda</Link>
                                 <li className='cursor-pointer hover:bg-slate-100 p-2 rounded-md'>
                                     <LogoutLink> Salir </LogoutLink>
                                 </li>
                             </ul>
                         </PopoverContent>
                     </Popover>
-                </>
-            ) : (
-                <LoginLink>
-                    <Button>Empieza hoy</Button>
-                </LoginLink>
-            )}
+                ) : (
+                    <LoginLink>
+                        <Button className="transition transform hover:scale-105 duration-200">Empieza hoy</Button>
+                    </LoginLink>
+                )}
+                <a href='https://1upwebdesigns.com/contacto/' target='_blank' rel='noopener noreferrer'>
+                    <Button className='bg-white text-primary border border-primary hover:bg-primary-dark transition transform hover:scale-105 duration-200'>Contáctanos</Button>
+                </a>
+            </div>
         </div>
-    )
+    );
 }
 
 export default Header;

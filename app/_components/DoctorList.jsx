@@ -51,13 +51,13 @@ function DoctorList({ doctorList, heading = 'Doctores Mas Frecuentados', useCaro
           className='h-[200px] w-full object-cover rounded-lg'
         />
         <div className='items-baseline flex flex-col gap-1'>
-          <h2 className='font-medium text-[14px] bg-violet-100 p-1 rounded-full px-2 text-primary'>
+          <h2 className='font-medium text-[14px] bg-green-50 p-1 rounded-full px-2 text-primary'>
             {doctor.attributes?.categories?.data[0]?.attributes?.Name}
           </h2>
           <h2 className='font-semibold text-[14px]'>
             {doctor.attributes.Name}
           </h2>
-          <h3 className='font-thin text-[12px] text-gray-600'>
+          <h3 className='font-thin text-[12px] text-gray-700'>
             {doctor.attributes.Years_of_Experience}
           </h3>
           <Link href={`/details/${doctor?.id}`} className='w-full'>
@@ -71,7 +71,7 @@ function DoctorList({ doctorList, heading = 'Doctores Mas Frecuentados', useCaro
   );
 
   return (
-    <div className='mt-10 px-10'>
+    <div className='mt-10 px-10 mb-20'>
       <h2 className='font-bold text-xl mb-5 text-center'>
         {heading}
       </h2>

@@ -22,9 +22,9 @@ function CategorySearch() {
   };
 
   return (
-    <div className='flex flex-col px-5 items-center gap-2'>
+    <div className='flex flex-col px-5 items-center gap-2 mb-10'>
       <h2 className='font-bold text-4xl tracking-wide'>
-        Busca
+        Buscar
         <span className='text-primary'> Doctores</span>
       </h2>
       <h2 className='text-gray-600 text-xl'>
@@ -39,12 +39,12 @@ function CategorySearch() {
       </div>
 
       {/* Display List of Category  */}
-      <div className='grid grid-cols-3 mt-5 md:grid-cols-4 lg:grid-cols-6 '>
+      <div className='grid grid-cols-3 mt-5 md:grid-cols-4 lg:grid-cols-6'>
         {categoryList.length > 0 ? categoryList.map((item, index) => index < 6 && (
           <Link
             href={'/search/' + item.attributes.Name}
             key={item.id} // Use item.id as key
-            className='flex flex-col text-center items-center p-5 bg-blue-50 m-2 rounded-lg cursor-pointer gap-2 hover:scale-110 transition-all ease-in-out'
+            className='flex flex-col text-center items-center p-5 bg-slate-100 m-2 rounded-lg cursor-pointer gap-2 hover:scale-110 transition-all ease-in-out'
           >
             <Image
               src={item.attributes?.Icon?.data.attributes?.url}

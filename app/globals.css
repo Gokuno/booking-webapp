@@ -64,6 +64,22 @@
       --input: 0 0% 14.9%;
       --ring: 0 0% 83.1%;
     }
+    
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+  }
+  
+  body {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .flex-grow {
+      flex-grow: 1;
+  }
+  
   }
 
   @layer base {

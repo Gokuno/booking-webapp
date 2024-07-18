@@ -26,10 +26,11 @@ function Hero() {
           eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius
           quidem quam repellat.
         </p>
-
-        <Button className='mt-10'>
+        <a href='https://1upwebdesigns.com/contacto/' target='_blank' rel='noopener noreferrer'>
+        <Button className='mt-10 transition transform hover:scale-105 duration-200'>
             Ver Mas
         </Button>
+        </a>
       </div>
     </div>
   </div>

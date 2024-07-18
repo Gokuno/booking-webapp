@@ -36,12 +36,12 @@ function DoctorSuggestionList() {
                         alt={doctor.attributes.Name} // Add the alt prop
                     />
                     <div className='mt-3 flex-col flex gap-1 items-baseline'>
-                        <h2 className='text-[10px] bg-blue-100 p-1 rounded-full px-2 text-primary'>
+                        <h2 className='text-[10px] bg-green-50 p-1 rounded-full px-2 text-primary'>
                             {doctor.attributes.categories?.data[0]?.attributes?.Name}
                         </h2>
                         <h2 className='font-bold text-sm'>{doctor.attributes.Name}</h2>
-                        <h2 className='text-primary text-xs flex gap-2'>
-                            {doctor.attributes.Year_of_Experience} years of experience
+                        <h2 className='text-secondary text-xs flex gap-2'>
+                            {doctor.attributes.Year_of_Experience} 
                         </h2>
                     </div>
                 </Link>

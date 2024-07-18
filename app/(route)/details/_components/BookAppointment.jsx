@@ -1,3 +1,4 @@
+"use client"
 import { Button } from '@/components/ui/button';
 import React, { useEffect, useState } from 'react';
 import {
@@ -22,6 +23,7 @@ function BookAppointment({ doctor }) {
   const [timeSlot, setTimeSlot] = useState([]);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState();
   const [note, setNote] = useState();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { user } = useKindeBrowserClient();
 
   useEffect(() => {
@@ -72,6 +74,7 @@ function BookAppointment({ doctor }) {
             console.log(resp);
           });
           toast("Booking Confirmation sent on Email");
+          setIsDialogOpen(false); // Close the dialog
         }
       })
       .catch(error => {
@@ -85,9 +88,9 @@ function BookAppointment({ doctor }) {
   };
 
   return (
-    <Dialog>
+    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
-        <Button className="rounded-full">Agenda Consulta</Button>
+        <Button onClick={() => setIsDialogOpen(true)} className="rounded-full transition transform hover:scale-105 duration-200">Agendar</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -142,6 +145,7 @@ function BookAppointment({ doctor }) {
               type="button"
               className="text-red-500 border-red-500"
               variant="outline"
+              onClick={() => setIsDialogOpen(false)}
             >
               Close
             </Button>
