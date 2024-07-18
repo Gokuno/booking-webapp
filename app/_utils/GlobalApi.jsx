@@ -3,7 +3,7 @@ import axios from "axios";
 const API_KEY = process.env.NEXT_PUBLIC_STRAPI_API_KEY;
 
 const axiosClient = axios.create({
-    baseURL: 'http://localhost:1337/api',
+    baseURL: 'https://doctor-appointment-admin-8z9m.onrender.com/api',
     headers: {
         'Authorization': `Bearer ${API_KEY}`,
     },
