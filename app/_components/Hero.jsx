@@ -18,7 +18,7 @@ function Hero() {
       </div>
 
       <div className="lg:py-24">
-        <h2 className="text-3xl font-bold sm:text-4xl">Encuentra a 
+        <h2 className="text-3xl font-bold sm:text-4xl">Encuentra  
             <span className='text-primary'> Doctores </span>Especialistas</h2>
 
         <p className="mt-4 text-gray-600">
